@@ -1,71 +1,41 @@
-<!-- Form action start -->
 <%= form_with(model: @action, local: true) do |f| %>
-<!-- Form action end -->
 
-  <!-- Label and input for date start -->
   <div class="form-group">
     <%= f.label :date %>
 
-    <!-- Input for date start -->
     <%= f.date_select :date, class: "form-control" %>
-    <!-- Input for date end -->
   </div>
-  <!-- Label and input for date end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <%= f.label :name %>
 
-    <!-- Input for name start -->
     <%= f.text_field :name, class: "form-control" %>
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for category_id start -->
   <div class="form-group">
     <%= f.label :category_id %>
 
-    <!-- Input for category_id start -->
     <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for category_id end -->
   </div>
-  <!-- Label and input for category_id end -->
 
-  <!-- Label and input for impact_level_value start -->
   <div class="form-group">
     <%= f.label :impact_level_value %>
 
-    <!-- Input for impact_level_value start -->
     <%= f.text_field :impact_level_value, class: "form-control" %>
-    <!-- Input for impact_level_value end -->
   </div>
-  <!-- Label and input for impact_level_value end -->
 
-  <!-- Label and input for impact_level start -->
   <div class="form-group">
     <%= f.label :impact_level %>
 
-    <!-- Input for impact_level start -->
     <%= f.text_field :impact_level, class: "form-control" %>
-    <!-- Input for impact_level end -->
   </div>
-  <!-- Label and input for impact_level end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for description start -->
   <div class="form-group">
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, rows: "3", class: "form-control" %>
-    <!-- Input for description end -->
   </div>
-  <!-- Label and input for description end -->
 
   <%= f.submit "Create action", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

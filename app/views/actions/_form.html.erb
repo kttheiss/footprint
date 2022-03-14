@@ -1,7 +1,6 @@
 <% was_validated = action.errors.any? %>
 
 <%= form_with(model: action, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for date start -->
   <div class="form-group">
     <% date_class = "form-control" %>
     <% date_was_invalid = action.errors.include?(:date) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :date %>
-    <!-- Input for date start -->
     <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
-    <!-- Input for date end -->
     <% if date_was_invalid %>
       <% action.errors.full_messages_for(:date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date end -->
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = action.errors.include?(:name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% action.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for category_id start -->
   <div class="form-group">
     <% category_class = "form-control" %>
     <% category_was_invalid = action.errors.include?(:category) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :category_id %>
-    <!-- Input for category_id start -->
     <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for category_id end -->
     <% if category_was_invalid %>
       <% action.errors.full_messages_for(:category).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_id end -->
-  <!-- Label and input for impact_level_value start -->
   <div class="form-group">
     <% impact_level_value_class = "form-control" %>
     <% impact_level_value_was_invalid = action.errors.include?(:impact_level_value) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :impact_level_value %>
-    <!-- Input for impact_level_value start -->
     <%= f.number_field :impact_level_value, class: impact_level_value_class, placeholder: "Enter impact level value" %>
-    <!-- Input for impact_level_value end -->
     <% if impact_level_value_was_invalid %>
       <% action.errors.full_messages_for(:impact_level_value).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for impact_level_value end -->
-  <!-- Label and input for impact_level start -->
   <div class="form-group">
     <% impact_level_class = "form-control" %>
     <% impact_level_was_invalid = action.errors.include?(:impact_level) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :impact_level %>
-    <!-- Input for impact_level start -->
     <%= f.text_field :impact_level, class: impact_level_class, placeholder: "Enter impact level" %>
-    <!-- Input for impact_level end -->
     <% if impact_level_was_invalid %>
       <% action.errors.full_messages_for(:impact_level).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,13 +111,7 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for impact_level end -->
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = action.errors.include?(:description) %>
@@ -150,9 +125,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% action.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -161,6 +134,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
