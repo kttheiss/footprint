@@ -17,7 +17,11 @@
 
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= action.category_id %></dd>
+      <dd>
+        <% if @action.category.present? %>
+          <%= link_to action.category, action.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
       <dt>Impact level value</dt>
@@ -32,7 +36,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= action.user_id %></dd>
+      <dd>
+        <% if @action.user.present? %>
+          <%= link_to action.user, action.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Description</dt>
