@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "actions#index"
   resources :categories
   resources :actions
   devise_for :users
