@@ -1,5 +1,7 @@
 ActiveAdmin.register Action do
 
+ permit_params :date, :name, :category_id, :impact_level_value, :impact_level, :user_id, :description
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
