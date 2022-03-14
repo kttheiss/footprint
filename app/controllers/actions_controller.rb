@@ -5,7 +5,7 @@ class ActionsController < ApplicationController
 
   # GET /actions
   def index
-    @actions = Action.all
+    @actions = Action.page(params[:page]).per(10)
   end
 
   # GET /actions/1
