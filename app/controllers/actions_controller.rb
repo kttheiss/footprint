@@ -24,7 +24,12 @@ class ActionsController < ApplicationController
     @action = Action.new(action_params)
 
     if @action.save
-      redirect_to @action, notice: 'Action was successfully created.'
+      message = 'Action was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @action, notice: message
+      end
     else
       render :new
     end
