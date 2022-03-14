@@ -12,6 +12,8 @@ RSpec.describe Action, type: :model do
 
     describe "Validations" do
 
+    it { should validate_inclusion_of(:impact_level).in_array([ "low", "medium", "high" ]) }
+
     it { should validate_inclusion_of(:impact_level_value).in_array([ "1", "2", "3" ]) }
 
     end
