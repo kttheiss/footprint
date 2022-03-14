@@ -1,0 +1,71 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Action #<%= action.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Date</dt>
+      <!-- Display date start -->
+      <dd><%= action.date %></dd>
+      <!-- Display date end -->
+
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= action.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Category</dt>
+      <!-- Display category_id start -->
+      <dd><%= action.category_id %></dd>
+      <!-- Display category_id end -->
+
+      <dt>Impact level value</dt>
+      <!-- Display impact_level_value start -->
+      <dd><%= action.impact_level_value %></dd>
+      <!-- Display impact_level_value end -->
+
+      <dt>Impact level</dt>
+      <!-- Display impact_level start -->
+      <dd><%= action.impact_level %></dd>
+      <!-- Display impact_level end -->
+
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= action.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= action.description %></dd>
+      <!-- Display description end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back action, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link action start -->
+      <div class="col">
+        <%= link_to edit_action_url(action), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link action end -->
+
+      <!-- Delete link action start -->
+      <div class="col">
+        <%= link_to action, method: :delete, data: { confirm: "Do you really want to delete this action?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link action end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(action.updated_at) %> ago
+  </div>
+</div>
