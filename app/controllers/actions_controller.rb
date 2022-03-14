@@ -5,7 +5,8 @@ class ActionsController < ApplicationController
 
   # GET /actions
   def index
-    @actions = Action.page(params[:page]).per(10)
+    @q = Action.ransack(params[:q])
+    @actions = @q.result(:distinct => true).includes(:user, :category).page(params[:page]).per(10)
   end
 
   # GET /actions/1
