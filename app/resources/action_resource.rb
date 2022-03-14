@@ -17,5 +17,4 @@ class ActionResource < ApplicationResource
   belongs_to :user
 
   # Indirect associations
-
 end

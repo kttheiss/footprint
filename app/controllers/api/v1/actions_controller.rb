@@ -13,7 +13,7 @@ class Api::V1::ActionsController < Api::V1::GraphitiController
     action = ActionResource.build(params)
 
     if action.save
-      render jsonapi: action, status: 201
+      render jsonapi: action, status: :created
     else
       render jsonapi_errors: action
     end
@@ -33,7 +33,7 @@ class Api::V1::ActionsController < Api::V1::GraphitiController
     action = ActionResource.find(params)
 
     if action.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: action
     end
