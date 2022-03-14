@@ -11,4 +11,7 @@ class UserResource < ApplicationResource
   has_many :actions
 
   # Indirect associations
+
+  many_to_many :impact_levels,
+               resource: FootprintTallyResource
 end

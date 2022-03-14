@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :impact_levels,
+             through: :actions,
+             source: :impact_level
+
   # Validations
 
   # Scopes

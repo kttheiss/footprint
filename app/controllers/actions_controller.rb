@@ -6,8 +6,8 @@ class ActionsController < ApplicationController
 
   def index
     @q = Action.ransack(params[:q])
-    @actions = @q.result(distinct: true).includes(:user,
-                                                  :category).page(params[:page]).per(10)
+    @actions = @q.result(distinct: true).includes(:user, :category,
+                                                  :impact_level).page(params[:page]).per(10)
   end
 
   def show; end
@@ -66,7 +66,7 @@ class ActionsController < ApplicationController
   end
 
   def action_params
-    params.require(:action).permit(:date, :name, :category_id,
-                                   :impact_level_value, :impact_level, :user_id, :description)
+    params.require(:action).permit(:date, :name, :category_id, :user_id,
+                                   :description, :footprint_level_id)
   end
 end

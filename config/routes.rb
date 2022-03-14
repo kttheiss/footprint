@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace,
         defaults: { format: :jsonapi } do
     scope module: "api/v1", as: "api" do
+      resources :footprint_tallies
+
       resources :categories
 
       resources :actions
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "actions#index"
+  resources :footprint_tallies
   resources :categories
   resources :actions
   devise_for :users

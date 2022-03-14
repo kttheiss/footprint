@@ -4,10 +4,9 @@ class CreateActions < ActiveRecord::Migration[6.0]
       t.date :date
       t.string :name
       t.integer :category_id
-      t.integer :impact_level_value
-      t.string :impact_level
       t.integer :user_id
       t.text :description
+      t.integer :footprint_level_id
 
       t.timestamps
     end

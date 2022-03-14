@@ -1,6 +1,5 @@
-ActiveAdmin.register Action do
-  permit_params :date, :name, :category_id, :user_id, :description,
-                :footprint_level_id
+ActiveAdmin.register FootprintTally do
+  permit_params :footprint_level_word, :footprint_level_number
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

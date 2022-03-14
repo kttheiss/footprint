@@ -5,12 +5,15 @@ class ActionResource < ApplicationResource
   attribute :date, :date
   attribute :name, :string
   attribute :category_id, :integer
-  attribute :impact_level_value, :integer
-  attribute :impact_level, :string
   attribute :user_id, :integer
   attribute :description, :string
+  attribute :footprint_level_id, :integer
 
   # Direct associations
+
+  belongs_to :impact_level,
+             resource: FootprintTallyResource,
+             foreign_key: :footprint_level_id
 
   belongs_to :category
 

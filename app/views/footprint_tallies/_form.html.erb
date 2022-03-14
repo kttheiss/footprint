@@ -1,0 +1,49 @@
+<% was_validated = footprint_tally.errors.any? %>
+
+<%= form_with(model: footprint_tally, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% footprint_level_word_class = "form-control" %>
+    <% footprint_level_word_was_invalid = footprint_tally.errors.include?(:footprint_level_word) %>
+
+    <% if was_validated %>
+      <% if footprint_level_word_was_invalid %>
+        <% footprint_level_word_class << " is-invalid" %>
+      <% else %>
+        <% footprint_level_word_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :footprint_level_word %>
+    <%= f.text_field :footprint_level_word, class: footprint_level_word_class, placeholder: "Enter footprint level word" %>
+    <% if footprint_level_word_was_invalid %>
+      <% footprint_tally.errors.full_messages_for(:footprint_level_word).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% footprint_level_number_class = "form-control" %>
+    <% footprint_level_number_was_invalid = footprint_tally.errors.include?(:footprint_level_number) %>
+
+    <% if was_validated %>
+      <% if footprint_level_number_was_invalid %>
+        <% footprint_level_number_class << " is-invalid" %>
+      <% else %>
+        <% footprint_level_number_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :footprint_level_number %>
+    <%= f.number_field :footprint_level_number, class: footprint_level_number_class, placeholder: "Enter footprint level number" %>
+    <% if footprint_level_number_was_invalid %>
+      <% footprint_tally.errors.full_messages_for(:footprint_level_number).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

@@ -18,12 +18,6 @@
         <% end %>
       </dd>
 
-      <dt>Impact level value</dt>
-      <dd><%= action.impact_level_value %></dd>
-
-      <dt>Impact level</dt>
-      <dd><%= action.impact_level %></dd>
-
       <dt>User</dt>
       <dd>
         <% if @action.user.present? %>
@@ -33,6 +27,13 @@
 
       <dt>Description</dt>
       <dd><%= action.description %></dd>
+
+      <dt>Footprint level</dt>
+      <dd>
+        <% if @action.impact_level.present? %>
+          <%= link_to action.impact_level, action.impact_level %>
+        <% end %>
+      </dd>
 
     </dl>
 

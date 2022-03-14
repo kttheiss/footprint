@@ -67,50 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <div class="form-group">
-    <% impact_level_value_class = "form-control" %>
-    <% impact_level_value_was_invalid = action.errors.include?(:impact_level_value) %>
-
-    <% if was_validated %>
-      <% if impact_level_value_was_invalid %>
-        <% impact_level_value_class << " is-invalid" %>
-      <% else %>
-        <% impact_level_value_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :impact_level_value %>
-    <%= f.number_field :impact_level_value, class: impact_level_value_class, placeholder: "Enter impact level value" %>
-    <% if impact_level_value_was_invalid %>
-      <% action.errors.full_messages_for(:impact_level_value).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
-    <% impact_level_class = "form-control" %>
-    <% impact_level_was_invalid = action.errors.include?(:impact_level) %>
-
-    <% if was_validated %>
-      <% if impact_level_was_invalid %>
-        <% impact_level_class << " is-invalid" %>
-      <% else %>
-        <% impact_level_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :impact_level %>
-    <%= f.text_field :impact_level, class: impact_level_class, placeholder: "Enter impact level" %>
-    <% if impact_level_was_invalid %>
-      <% action.errors.full_messages_for(:impact_level).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="form-group">
     <% description_class = "form-control" %>
@@ -128,6 +84,28 @@
     <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
     <% if description_was_invalid %>
       <% action.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% footprint_level_class = "form-control" %>
+    <% footprint_level_was_invalid = action.errors.include?(:footprint_level) %>
+
+    <% if was_validated %>
+      <% if footprint_level_was_invalid %>
+        <% footprint_level_class << " is-invalid" %>
+      <% else %>
+        <% footprint_level_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :footprint_level_id %>
+    <%= f.collection_select :footprint_level_id, FootprintTally.all, :id, :to_s, {}, class: "form-control" %>
+    <% if footprint_level_was_invalid %>
+      <% action.errors.full_messages_for(:footprint_level).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
