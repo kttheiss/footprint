@@ -1,0 +1,41 @@
+<%= form_with(model: @activity_log, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date %>
+
+    <%= f.date_select :date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category_id %>
+
+    <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: "3", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :footprint %>
+
+    <%= f.text_field :footprint, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :footprint_number %>
+
+    <%= f.text_field :footprint_number, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create activity log", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

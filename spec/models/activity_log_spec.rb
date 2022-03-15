@@ -1,8 +1,10 @@
 require "rails_helper"
 
-RSpec.describe Category, type: :model do
+RSpec.describe ActivityLog, type: :model do
   describe "Direct Associations" do
-    it { should have_many(:activity_logs) }
+    it { should belong_to(:category) }
+
+    it { should belong_to(:user) }
   end
 
   describe "InDirect Associations" do

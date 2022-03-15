@@ -2,15 +2,10 @@ class User < ApplicationRecord
   include JwtToken
   # Direct associations
 
-  has_many   :actions,
-             class_name: "Activity",
+  has_many   :activity_logs,
              dependent: :destroy
 
   # Indirect associations
-
-  has_many   :impact_levels,
-             through: :actions,
-             source: :impact_level
 
   # Validations
 
