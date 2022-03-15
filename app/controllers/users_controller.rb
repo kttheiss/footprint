@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @activity = Activity.new
+    @activity_log = ActivityLog.new
   end
 
   def new

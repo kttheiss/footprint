@@ -1,0 +1,65 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Activity Log #<%= activity_log.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <dd><%= activity_log.name %></dd>
+
+      <dt>Date</dt>
+      <dd><%= activity_log.date %></dd>
+
+      <dt>Category</dt>
+      <dd>
+        <% if @activity_log.category.present? %>
+          <%= link_to activity_log.category, activity_log.category %>
+        <% end %>
+      </dd>
+
+      <dt>User</dt>
+      <dd>
+        <% if @activity_log.user.present? %>
+          <%= link_to activity_log.user, activity_log.user %>
+        <% end %>
+      </dd>
+
+      <dt>Description</dt>
+      <dd><%= activity_log.description %></dd>
+
+      <dt>Footprint</dt>
+      <dd><%= activity_log.footprint %></dd>
+
+      <dt>Footprint number</dt>
+      <dd><%= activity_log.footprint_number %></dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back activity_log, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <% if current_user == @activity_log.user %>
+          <%= link_to edit_activity_log_url(activity_log), class: "btn btn-block btn-sm btn-outline-secondary" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <% if current_user == @activity_log.user %>
+          <%= link_to activity_log, method: :delete, data: { confirm: "Do you really want to delete this activity_log?" }, class: "btn btn-block btn-outline-secondary" do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(activity_log.updated_at) %> ago
+  </div>
+</div>

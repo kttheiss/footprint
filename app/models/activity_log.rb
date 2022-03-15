@@ -1,8 +1,9 @@
-class Category < ApplicationRecord
+class ActivityLog < ApplicationRecord
   # Direct associations
 
-  has_many   :activity_logs,
-             dependent: :destroy
+  belongs_to :category
+
+  belongs_to :user
 
   # Indirect associations
 
