@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Impact Levels
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.impact_levels.each do |footprint_tally| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <a href="/footprint_tallies/<%= footprint_tally.id %>">
+          <%= footprint_tally %>
+        </a>
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

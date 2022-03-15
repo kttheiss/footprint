@@ -3,9 +3,14 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :actions,
+             class_name: "Activity",
              dependent: :destroy
 
   # Indirect associations
+
+  has_many   :impact_levels,
+             through: :actions,
+             source: :impact_level
 
   # Validations
 

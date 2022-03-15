@@ -3,17 +3,17 @@
     Actions
 
     <a data-toggle="collapse" href="#category_actions_new_form">
-      Add action
+      Add activity
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @category.actions.each do |action| %>
+    <% @category.actions.each do |activity| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <%= link_to action, action %>
+        <%= link_to activity, activity %>
 
-        <% if current_user == action.user %>
-          <%= link_to action, method: :delete do %>
+        <% if current_user == activity.user %>
+          <%= link_to activity, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
