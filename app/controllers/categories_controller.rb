@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @action = Action.new
+    @activity = Activity.new
   end
 
   def new

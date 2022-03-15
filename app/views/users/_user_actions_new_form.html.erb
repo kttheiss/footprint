@@ -1,4 +1,4 @@
-<%= form_with(model: @action, local: true) do |f| %>
+<%= form_with(model: @activity, local: true) do |f| %>
 
   <div class="form-group">
     <%= f.label :date %>
@@ -18,18 +18,6 @@
     <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :impact_level_value %>
-
-    <%= f.text_field :impact_level_value, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :impact_level %>
-
-    <%= f.text_field :impact_level, class: "form-control" %>
-  </div>
-
   <%= f.hidden_field :user_id, value: @user.id %>
 
   <div class="form-group">
@@ -37,5 +25,11 @@
     <%= f.text_area :description, rows: "3", class: "form-control" %>
   </div>
 
-  <%= f.submit "Create action", class: "btn btn-block btn-outline-secondary" %>
+  <div class="form-group">
+    <%= f.label :footprint_level_id %>
+
+    <%= f.collection_select :footprint_level_id, FootprintTally.all, :id, :to_s, {}, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Create activity", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

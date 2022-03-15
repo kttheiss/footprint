@@ -8,7 +8,11 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many :actions
+  has_many   :actions,
+             resource: ActivityResource
 
   # Indirect associations
+
+  many_to_many :impact_levels,
+               resource: FootprintTallyResource
 end

@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "InDirect Associations" do
+    it { should have_many(:impact_levels) }
   end
 
   describe "Validations" do
